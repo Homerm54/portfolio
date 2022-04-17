@@ -1,25 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import GlobalStyle from 'assets/style/global';
+import { dark } from 'assets/style/theme';
+import { ThemeProvider } from 'assets/style/ThemeProvider';
+import { Link } from 'components/ui';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={dark}>
+      <GlobalStyle />
+      
+      <Link href="portfolio/resume.pdf" target="_blank">
+        Resume
+      </Link>
+    </ThemeProvider>
   );
 }
 
