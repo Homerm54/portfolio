@@ -1,38 +1,42 @@
-import styled from "styled-components";
-import { TabHeaderStyleProps, TabItemStyleProps, TabPanelStyleProps } from "./types";
+import { animated } from "@react-spring/web";
+import styled, { css } from "styled-components";
+import { TabGroupStyleProps, TabHeaderStyleProps, TabItemStyleProps, TabPanelStyleProps } from "./types";
 
 const TabItemLabel = styled.span`
   margin: 0 ${({ theme }) => theme.spacing(1.25)}px;
 `;
 
 const TabItemStyle = styled.div<TabItemStyleProps>`
+  transition-duration: 0.75s;
   font-weight: ${({ $isActive }) => ( $isActive ? 'bold' : 'normal' )};
   border: 2px solid transparent;
   border-radius: 3px;
-  border-bottom-color: ${({ $isActive, theme }) => (
+  border-${({ $position }) => $position === 'top' ? 'bottom' : 'right'}-color: ${({ $isActive, theme }) => (
     $isActive
       ? theme.palette.primary.main
-      : theme.palette.grey[300]
-  )};
-  
-  &:hover {
-    border-bottom-color: ${({ $isActive, theme }) => (
-    $isActive
-      ? theme.palette.common.black
-      : theme.palette.grey[500]
+      : 'none'
   )};
       
-    background-color: ${({ $isActive, theme }) => (
+  background-color: ${({ $isActive, theme }) => (
     $isActive
-      ? 'none'
-      : theme.palette.action.disabledBackground
-  )};
+      ? `${theme.palette.primary[900]}30`
+      : 'none'
+    )};
   }
 `;
 
 const TabHeaderStyle = styled.div<TabHeaderStyleProps>`
   display: flex;
   width: 100%;
+  ${({ $position }) =>
+  $position === 'top'
+    ? ''
+    : css`
+      max-width: max-content;
+      flex-flow: column;
+      margin-right: ${({ theme }) => theme.spacing(2)}px;
+    `
+  }
   justify-content: ${({ $alignment }) => $alignment};
   
   /* TODO: This scroll should be styled with a button, and on click */
@@ -43,9 +47,13 @@ const TabHeaderStyle = styled.div<TabHeaderStyleProps>`
   }
 `;
 
-const TabGroupStyle = styled.div``;
+const TabGroupStyle = styled.div<TabGroupStyleProps>`
+  display: flex;
+  flex-flow: ${({ $position }) => $position === 'top' ? 'column' : 'row'};
+`;
 
-const TabPanelStyle = styled.div<TabPanelStyleProps>`
+const TabPanelStyle = styled(animated.div) <TabPanelStyleProps>`
+  position: relative;
   padding: ${({ theme }) => theme.spacing(1)}px ${({ theme }) => theme.spacing(2)}px;
 `;
 

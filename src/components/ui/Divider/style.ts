@@ -63,7 +63,7 @@ const HorizontalDividerText = styled.div<HorizontalDividerProps>`
   }
 `;
 
-const TextDivider = styled.span`
+const TextDivider = styled.div`
   display: inline-block;
 
   /* X padding to avoid rendering divider lines that "touches" the text */

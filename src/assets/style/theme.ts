@@ -224,14 +224,14 @@ export const dark: Theme = {
     },
 
     background: {
-      default: '#0F1013',
+      default: '#0a192f',
       paper: '#ECECEC',
     },
 
     divider: 'rgba(194, 224, 255, 0.1);',
 
     text: {
-      primary: "#FFF",
+      primary: "#dcdce0",
       secondary: "#B2BAC2",
       disabled: "rgba(255, 255, 255, 0.5)",
       icon: "rgba(255, 255, 255, 0.5)",

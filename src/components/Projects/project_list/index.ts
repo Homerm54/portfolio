@@ -1,4 +1,9 @@
+import starburst_image from './images/starburst.jpg';
+import time_machine_image from './images/time_machine.jpg';
+
 type Project = {
+  /** Unique Id of the project */
+  id: string;
   /** Name of the project */
   title: string;
   /** Link to the project web app */
@@ -9,15 +14,15 @@ type Project = {
   description: string;
   /** Array of the tools, platforms and frameworks used in the development of the project */
   tools: Array<string>;
-  /**
-   * Whether or not the project is not currently active, and hence, 
-   * not mantained or updated anymore.
-   * */
-  legacy: boolean;
+  /** The image that will be displayed in the project section */
+  image?: string;
+  /** For legacy projects, or where an image isn't available, an icon is the go to */
+  icon?: string;
 }
 
-const projects: Array<Project> = [
+const featured: Array<Project> = [
   {
+    id: 'The heavy one',
     title: 'Starburst',
     link: 'https://starburst-app.herokuapp.com/',
     repo_link: [
@@ -27,35 +32,15 @@ const projects: Array<Project> = [
     description: `
       The Starburst is the biggest project on the list, intended to be a Workspace Environment, 
       provides the user a place to design / develop projects, explore ideas, and keep a space to 
-      brainstorm. The Web Application provides the user with the ability to create a project, and 
-      inside the project, draw the designs, upload related files, and create a complex file 
-      (markdown like), that allows to organize all the data that comes with creating and keeping 
-      the progress of a project. 
-
-      Much like a Notion application, but providing a file system to store multimedia, 
-      tab system and calendar implementation. Inspired by Notion and the Jupyter Lab / VSCode 
-      workspace.
-
-      The application provides a MERN like stack, separated in 2 big projects, 
-      the Client and the Server. The server provides Authentication, Database implementation with 
-      Mongo Atlas, and Dropbox connection to store users' files.
-
-      The client connects to the server via HTTP, and is separated in 2 main sections:
-      - UI with ReactJS
-      - API SDK to connect to the server
-
-      The API SDK is used to provide ready to use, functions and classes to communicate
-      with the modules provided by the server. Furthermore, this allows to developed UI and
-      logic separately, which scales better, and provides less friction to changes.
-
-      Both server and client are developed using Typescript, which ensures that the types,
-      events, and codes matches across the overall codebase.
+      brainstorm. The Web Application provides the user with the ability to create a project, 
+      sketch designs, upload related files, and create a complex file.
     `,
     tools: ['Node.js', 'React', 'Mongo DB', 'JWT', 'XState', 'Style Components', 'Typescript', 'Express.js', 'Heroku', 'NodeMailer', 'Dropbox API'],
-    legacy: false,
+    image: starburst_image,
   },
 
   {
+    id: '12-213sd-sas-21ssa',
     title: 'Time Machine',
     link: 'https://homerm54.github.io/time-machine/',
     repo_link: 'https://github.com/Homerm54/time-machine',
@@ -68,10 +53,13 @@ const projects: Array<Project> = [
       to both the Application Logic and behavior, and to the codebase overall.
     `,
     tools: ['FSM', 'State Charts', 'React', 'XState', 'Typescript'],
-    legacy: false,
+    image: time_machine_image,
   },
-  
+]
+
+const legacy: Array<Project> = [
   {
+    id: '?',
     title: 'React Calendar',
     link: 'https://the-react-calendar.herokuapp.com', 
     repo_link: [
@@ -96,10 +84,11 @@ const projects: Array<Project> = [
       state, alongside with server requests.
     `,
     tools: ['Express.js', 'MongoDB', 'Mongo Atlas', 'React', 'Redux', 'JWT', 'Material UI'],
-    legacy: true,
+    icon: 'folder',
   },
 
   {
+    id: 'asds-323-c-cdv-1-w',
     title: 'React Notes',
     link: 'https://react-notes-beta.web.app',
     repo_link: 'https://github.com/Homerm54/React-Notes',
@@ -110,10 +99,11 @@ const projects: Array<Project> = [
       and see them across multiple devices.
     `,
     tools: ['Firebase', 'React', 'Material UI'],
-    legacy: true,
+    icon: 'folder',
   },
 
   {
+    id: '2-dc-3-22-cdss-cx',
     title: 'Note Taker',
     link: 'https://thenote-taker.herokuapp.com',
     repo_link: 'https://github.com/Homerm54/Note-Taker',
@@ -127,8 +117,9 @@ const projects: Array<Project> = [
       uses Handlebars.
     `,
     tools: ['JQuery', 'Express.js', 'Sequelize', 'Handlebars'],
-    legacy: true,
+    icon: 'folder',
   },
 ];
 
-export { projects };
+export { featured, legacy };
+export type { Project };

@@ -3,13 +3,15 @@ import { LinkProps } from './types';
 
 const Link = ({
   children,
-  type="text",
+  type = "text",
+  animationCenter = 'left',
   ...rest
 }: LinkProps): JSX.Element => {
   return (
     <StyledNormalLink
       $type={type}
       $active={false}
+      $center={animationCenter}
       {...rest}
     >
       {children}

@@ -2,13 +2,17 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle
 `
-// Font Families: Montserrat as Main - Nunito as Secondary
+// Font Families: Montserrat as Main - Raleway for headers
 * {
-    margin: 0;
-    padding: 0;
-    outline:0;
-    font-family: 'Montserrat', sans-serif;
-    // font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  outline:0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
 }
 
 *, :after, :before {
@@ -28,6 +32,19 @@ body {
   -webkit-text-size-adjust: 100%;
   font-size: ${({ theme }) => theme.baseFontSize}px;
   letter-spacing: 0.00938em;
+}
+
+// Scroll Bar Style for root div
+#root::-webkit-scrollbar-track, .custom-scroll::-webkit-scrollbar-track { 
+  background: #0a192f;
+}
+#root::-webkit-scrollbar, .custom-scroll::-webkit-scrollbar { 
+  width: 14px;
+}
+#root::-webkit-scrollbar-thumb, .custom-scroll::-webkit-scrollbar-thumb { 
+  background-color: #495670;
+  border: 4px solid #0a192f;
+  border-radius: ${({ theme }) => theme.borderRadius}px;
 }
 
 #root {

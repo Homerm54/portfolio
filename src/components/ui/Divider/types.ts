@@ -5,7 +5,7 @@ interface Props extends Omit<NativeProps, 'child'> {
   type?: 'horizontal' | 'vertical';
 
   /** Text to show in the divider */
-  text?: string;
+  text?: React.ReactNode;
 
   /** Orientation of the text component in the divider */
   textOrientation?: 'left' | 'center' | 'right';

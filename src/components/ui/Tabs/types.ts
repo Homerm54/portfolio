@@ -1,9 +1,9 @@
 type NativeProps = React.ComponentPropsWithoutRef<'div'>;
 type IconLabelType = { start: React.ReactNode; end: React.ReactNode };
-
 type TabContentType = Array<{ item: React.ReactNode, key: string; }>;
 type TabHeaderType = Array<React.ReactElement<TabItemProps>>;
 type alignment = 'center' | 'left' | 'right';
+type TabsPositions = 'top' | 'left';
 
 interface TabGroupProps extends Omit<NativeProps, 'onChange'> {
   readonly children: React.ReactElement<TabItemProps> | Array<React.ReactElement<TabItemProps>>;
@@ -21,6 +21,8 @@ interface TabGroupProps extends Omit<NativeProps, 'onChange'> {
    * you can "force" a tab state with a prop change.
    */
   readonly forcedTab?: string;
+  /** Whether to display the tabs on top of the content, or in the left side */
+  readonly tabPosition?: TabsPositions;
 }
 
 interface TabItemProps extends Omit<NativeProps, 'onChange'> {
@@ -29,6 +31,7 @@ interface TabItemProps extends Omit<NativeProps, 'onChange'> {
   readonly label: string;
   readonly icon?: React.ReactNode | IconLabelType;
   readonly onChange?: (arg: string) => unknown;
+  readonly tabPosition?: TabsPositions;
 }
 
 interface TabPanelProps extends NativeProps {
@@ -39,6 +42,7 @@ interface TabPanelProps extends NativeProps {
 // Style Props
 interface TabItemStyleProps {
   $isActive: boolean;
+  $position: TabsPositions;
 }
 
 interface TabPanelStyleProps {
@@ -47,6 +51,11 @@ interface TabPanelStyleProps {
 
 interface TabHeaderStyleProps {
   $alignment: alignment;
+  $position: TabsPositions;
+}
+
+interface TabGroupStyleProps {
+  $position: TabsPositions;
 }
 
 export type {
@@ -59,4 +68,5 @@ export type {
   TabContentType,
   TabHeaderType,
   TabHeaderStyleProps,
+  TabGroupStyleProps,
 };

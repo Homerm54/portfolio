@@ -1,16 +1,25 @@
 import GlobalStyle from 'assets/style/global';
 import { dark } from 'assets/style/theme';
 import { ThemeProvider } from 'assets/style/ThemeProvider';
-import { Link } from 'components/ui';
+import { About } from 'components/About';
+import { WorkList } from 'components/Work';
+
+import 'assets/icons/faIcons';
+import { Container } from 'components/ui';
+import { ProjectList } from 'components/Projects';
+import { Contact } from 'components/Contact';
 
 function App() {
   return (
     <ThemeProvider theme={dark}>
       <GlobalStyle />
       
-      <Link href="portfolio/resume.pdf" target="_blank">
-        Resume
-      </Link>
+      <Container maxWidth={1000} style={{ margin: 'auto' }}>
+        <About />
+        <WorkList />
+        <ProjectList />
+        <Contact />
+      </Container>
     </ThemeProvider>
   );
 }
