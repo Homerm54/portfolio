@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/portfolio/static/js/main.db7e8e99.js",
+    "main.js": "/portfolio/static/js/main.58f8afb8.js",
     "static/media/starburst.jpg": "/portfolio/static/media/starburst.f2f1357b4261ee1b9e8c.jpg",
     "static/media/time_machine.jpg": "/portfolio/static/media/time_machine.fb184a7e10e6d314c467.jpg",
     "index.html": "/portfolio/index.html",
-    "main.db7e8e99.js.map": "/portfolio/static/js/main.db7e8e99.js.map"
+    "main.58f8afb8.js.map": "/portfolio/static/js/main.58f8afb8.js.map"
   },
   "entrypoints": [
-    "static/js/main.db7e8e99.js"
+    "static/js/main.58f8afb8.js"
   ]
 }
